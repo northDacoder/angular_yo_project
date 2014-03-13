@@ -1,8 +1,8 @@
 'use strict';
  
 app.factory('Auth',
-  function ($firebaseSimpleLogin, 'https://yoyo.firebaseio.com/', $rootScope) {
-    var ref = new Firebase('https://yoyo.firebaseio.com/');
+  function ($firebaseSimpleLogin, 'FIREBASE_URL', $rootScope) {
+    var ref = new Firebase('FIREBASE_URL');
  
     var auth = $firebaseSimpleLogin(ref);
  

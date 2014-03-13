@@ -1,10 +1,8 @@
-/* global 'Firebase': false */
-
 'use strict';
 
 app.factory('Post', 
-	function($firebase, 'https://yoyo.firebaseio.com/:id.json') {
-		var ref = new Firebase('https://yoyo.firebaseio.com/:id.json' + 'posts');
+	function($firebase, 'FIREBASE_URL') {
+		var ref = new Firebase('FIREBASE_URL' + 'posts');
 
 		var posts = $firebase(ref);
 
