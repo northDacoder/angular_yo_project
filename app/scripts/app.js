@@ -10,7 +10,7 @@ var app = angular.module('yoyoApp', [
   'firebase'
 ]);
 
-app.constant(FIREBASE_URL, 'https://yoyo.firebaseio.com/');
+app.constant('FIREBASE_URL', 'https://yoyo.firebaseio.com/');
 
 app.config(function ($routeProvider) {
     $routeProvider
