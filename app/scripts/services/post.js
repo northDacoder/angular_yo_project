@@ -1,8 +1,8 @@
 'use strict';
 
 app.factory('Post', 
-	function($firebase, 'FIREBASE_URL') {
-		var ref = new Firebase('FIREBASE_URL' + 'posts');
+	function($firebase, FIREBASE_URL) {
+		var ref = new Firebase(FIREBASE_URL + 'posts');
 
 		var posts = $firebase(ref);
 
@@ -19,4 +19,11 @@ app.factory('Post',
 			}
 		};
 		return Post;
+});
+
+
+'use strict';
+ 
+app.factory('Post', function ($resource) {
+  return $resource('https://FIREBASE-URL.firebaseIO.com/posts/:id.json');
 });

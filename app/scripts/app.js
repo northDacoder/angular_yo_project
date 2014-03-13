@@ -8,8 +8,9 @@ var app = angular.module('yoyoApp', [
   'ngSanitize',
   'ngRoute',
   'firebase'
-])
-.constant('FIREBASE_URL', 'https://yoyo.firebaseio.com/');
+]);
+
+app.constant(FIREBASE_URL, 'https://yoyo.firebaseio.com/');
 
 app.config(function ($routeProvider) {
     $routeProvider
