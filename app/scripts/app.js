@@ -6,7 +6,8 @@ var app = angular.module('yoyoApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'firebase'
 ]);
 
 app.config(function ($routeProvider) {
