@@ -12,10 +12,7 @@ var app = angular.module('yoyoApp', [
 app.config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
+        templateUrl: 'views/posts.html',
+        controller: 'PostsCtrl'
       });
 });
