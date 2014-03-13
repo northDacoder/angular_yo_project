@@ -1,30 +1,27 @@
 'use strict';
  
-app.factory('Auth',
-  function ($firebaseSimpleLogin, FIREBASE_URL, $rootScope) {
-    var ref = new Firebase(FIREBASE_URL);
- 
-    var auth = $firebaseSimpleLogin(ref);
- 
-    var Auth = {
-    
-        register: function (user) {
-            return auth.$createUser(user.email, user.password);
-        },
-        signedIn: function () {
-            return auth.user !== null;
-        },
-        login: function (user) {
-            return auth.$login('password', user);
-        },
-        logout: function () {
-            auth.$logout();
+app.controller('AuthCtrl',
+    function ($scope, $location, Auth) {
+        if (Auth.signedIn()) {
+            $location.path('/');
         }
-    };
-    
-    $rootScope.signedIn = function () {
-      return Auth.signedIn();
+ 
+        $scope.$on('$firebaseSimpleLogin:login', function () {
+            $location.path('/');
+        });
+ 
+        $scope.login = function () {
+            Auth.login($scope.user).then(function () {
+                $location.path('/')
+            });
+        };
     };
  
-    return Auth;
+    $scope.register = function () {
+        Auth.register($scope.user).then(function (authUser) {
+            console.log(authUser);
+            $location.path('/');
+        });
+    };
+  
   });
