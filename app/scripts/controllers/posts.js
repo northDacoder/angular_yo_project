@@ -14,3 +14,7 @@ app.controller('PostsCtrl', function($scope){
 		$scope.posts.splice(index, 1);
 	};
 });
+
+app.factory('Post', function($resource){
+	return $resource('https://yoyo.firebaseio.com');	
+});
