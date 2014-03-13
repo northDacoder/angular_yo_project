@@ -8,11 +8,11 @@ app.controller('NavCtrl', function ($scope, $location, Post) {
         	$location.path('/posts/' + ref.name());
 	      	$scope.post = {url: 'http://', title: ''};
       	});
-
-    	$scope.logout = function() {
-    		Auth.logout();
-    	};
-
     };
+
+    $scope.logout = function() {
+    		Auth.logout();
+    };
+
  
  });
